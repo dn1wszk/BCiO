@@ -87,9 +87,9 @@ AESRound (rk, s) = AddRoundKey (rk, MixColumns (ShiftRows (SubBytes s)))
 
 // AES rounds and inverses
 AESRound_2 : [128] -> [128]
-AESRound_2 s = join(join(AddRoundKey (rk_2, MixColumns (ShiftRows (SubBytes s_4)))))
-	where s_4 = groupBy`{4} (groupBy`{8} s_3)
-	where s_3 = join(join(AddRoundKey (rk_2, MixColumns (ShiftRows (SubBytes s_2)))))
+AESRound_2 s = join(join(AddRoundKey (rk_2, MixColumns (ShiftRows (SubBytes s_2)))))
+//	where s_4 = groupBy`{4} (groupBy`{8} s_3)
+//	where s_3 = join(join(AddRoundKey (rk_2, MixColumns (ShiftRows (SubBytes s_2)))))
 	where s_2 = groupBy`{4} (groupBy`{8} s)
 	where rk_2 = groupBy`{4} (groupBy`{8} rk)
 //	where rk = 11110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000111100001111000011110000
